@@ -890,15 +890,14 @@ do
 
 		if LoaderConfig.Status == false then
 			LOADER.load.logo.stroke.UIStroke.Color = Color3.fromRGB(24, 24, 24)
-			LOADER.load.logo["Title/Status"].Text = 'Makerz Joiner'
+			LOADER.load.logo["Title/Status"].Text = 'Jannis Hub'
 		end
 
 		local statusColors = {
 			Stable = { Color = Color3.fromRGB(25, 229, 22), Text = '<font color="#24bf48">Stable</font>' },
 			Unstable = { Color = Color3.fromRGB(227, 229, 81), Text = '<font color="#e3e551">Unstable</font>' },
 			Detected = { Color = Color3.fromRGB(229, 44, 47), Text = '<font color="#e52c2f">Detected</font>' },
-			Patched = { Color = Color3.fromRGB(229, 44, 47), Text = '<font color="#e52c2f">Patched</font>' },
-      Makerz Services = { Color = Color3.fromRGB(25, 229, 22), Text = '<font color="#24bf48">Makerz Services</font>' }
+			Patched = { Color = Color3.fromRGB(229, 44, 47), Text = '<font color="#e52c2f">Patched</font>' }
 		}
 
 		local statusData = statusColors[LoaderConfig.Status]
@@ -5674,5 +5673,3 @@ function syde:Init(library)
 
 end
 return syde
-
-
