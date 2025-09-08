@@ -890,7 +890,7 @@ do
 
 		if LoaderConfig.Status == false then
 			LOADER.load.logo.stroke.UIStroke.Color = Color3.fromRGB(24, 24, 24)
-			LOADER.load.logo["Title/Status"].Text = 'Jannis Hub'
+			LOADER.load.logo["Title/Status"].Text = 'Makerz Joiner'
 		end
 
 		local statusColors = {
