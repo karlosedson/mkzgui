@@ -1007,6 +1007,42 @@ do
 				Library.Parent = coregui
 			end)
 
+			--[[
+			task.spawn(function()
+				while Library and Library.Parent do
+					task.wait(1)
+					if Library.Parent ~= coregui then
+						warn("Syde 〡 UI moved. Restoring...")
+						pcall(function()
+							Library.Parent = coregui
+						end)
+					end
+				end
+			end)
+
+			
+			task.spawn(function()
+				while Library and Library.Parent do
+					task.wait(2)
+				end
+
+				warn("Syde 〡 UI removed. Reinjection in progress...")
+				local success, lib = pcall(function()
+					return Library -- Replace with GetObjects if needed
+				end)
+				if success and lib then
+					lib.Name = UI_TAG
+					local m = Instance.new("StringValue")
+					m.Name = MARKER_NAME
+					m.Value = INTERNAL_UUID
+					m.Parent = lib
+					lib.ResetOnSpawn = false
+					pcall(function()
+						lib.Parent = coregui
+					end)
+				end
+			end)
+]]
 			TweenWorkLabel(1,'rbxassetid://108012241529487', 'Checking For Discord...')
 
 			if Config.AutoJoinDiscord and Config.AutoJoinDiscord.Enabled then
@@ -1336,6 +1372,43 @@ function syde:Init(library)
 		pcall(function()
 			Library.Parent = coregui
 		end)
+
+		--[[
+		task.spawn(function()
+			while Library and Library.Parent do
+				task.wait(1)
+				if Library.Parent ~= coregui then
+					warn("Syde 〡 UI moved. Restoring...")
+					pcall(function()
+						Library.Parent = coregui
+					end)
+				end
+			end
+		end)
+
+		task.spawn(function()
+			while Library and Library.Parent do
+				task.wait(2)
+			end
+
+			warn("Syde 〡 UI removed. Reinjection in progress...")
+			local success, lib = pcall(function()
+				return Library -- Replace with GetObjects if needed
+			end)
+			if success and lib then
+				lib.Name = UI_TAG
+				local m = Instance.new("StringValue")
+				m.Name = MARKER_NAME
+				m.Value = INTERNAL_UUID
+				m.Parent = lib
+				lib.ResetOnSpawn = false
+				pcall(function()
+					lib.Parent = coregui
+				end)
+			end
+		end)
+	end
+]]
 
 	tweenservice:Create(game.Workspace.Camera, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), { FieldOfView  = 70 }):Play()
 
